@@ -6,6 +6,7 @@ class Gamma : public Base
 	
 public:
 	Gamma(std::vector<std::shared_ptr<Base>> a);
+	int check_S(int temp_s);
 	Gamma();
 	~Gamma();
 };

@@ -1,12 +1,23 @@
 #include "Alpha.h"
-Alpha::Alpha(std::vector<std::shared_ptr<Base>> a) {
+int Alpha::check_S(int temp_s){
+	if (ptr_numb == 1) {
+		temp_s += -2 * curr + 11 ;
+		temp_s = 2 * temp_s -curr + 11;
+		return temp_s;
+	}
+	ptr_numb--;
+	return 0;
+}
+Alpha::Alpha(std::vector<std::shared_ptr<Base>> a) : Base(0){
 	data = a;
 	a_N++;
 	curr = a_N;
+	ptr_numb = 1;
 }
-Alpha::Alpha(){
+Alpha::Alpha():Base(0) {
 	a_N++;
 	curr = a_N;
+	ptr_numb = 1;
 }
 Alpha::~Alpha(){
 	S += - 2* curr + 11;

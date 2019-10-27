@@ -7,6 +7,7 @@ class Beta :public Base
 	
 public:
 	Beta(std::vector<std::shared_ptr<Base>> a);
+	int check_S(int temp_s);
 	Beta();
 	~Beta();
 };

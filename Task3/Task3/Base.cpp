@@ -1,4 +1,6 @@
 #include "Base.h"
+Base::Base(bool check) {
+}
 Base::Base(){
 	base_N++;
 	curr=base_N;
