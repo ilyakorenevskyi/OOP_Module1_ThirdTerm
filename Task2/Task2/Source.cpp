@@ -2,6 +2,7 @@
 #include <string>
 #include <iomanip>
 #include <cmath>
+#include <algorithm>
 #include <utility>
 #include <vector>
 using namespace std;
@@ -12,9 +13,9 @@ int fac_mod(int a, int mod) {
 	}
 	return res;
 }
-int degree_mod(int a,int mod) {
+int degree_mod(int a,int degree,int mod) {
 	int res = a;
-	for (int i = 1; i < a; i++) {
+	for (int i = 1; i < degree; i++) {
 		res = (res * a) % mod;
 	}
 	return res;
@@ -26,11 +27,22 @@ vector<int> func(T a) {
 template <>
 vector<int> func(int a) {
 	vector<int> res;
+	int temp = 0;
 	if (a > 0) {
 		for (int k = 2; k <= 111; k++) {
-			int temp = fac_mod(a, k) - (a * a) % k;
+			temp = fac_mod(a, k) - (a * a) % k;
 			res.push_back((temp<0)?(k+temp):temp);
 		}
+	}
+	else {
+		temp = (degree_mod((0-a), 4, 204) - degree_mod((0-a), 3, 204));
+		temp = (temp < 0) ? (204 + temp) : temp;
+		while (temp >= 4) {
+			res.push_back(temp % 4);
+			temp = temp / 4;
+		}
+		res.push_back(temp);
+		reverse(begin(res), end(res));
 	}
 	return res;
 }
@@ -52,11 +64,11 @@ vector<int> func(string a) {
 			d--;
 		}
 		else if (temp!=0) {
-			res.push_back(degree_mod(temp, 411));
+			res.push_back(degree_mod(temp,temp, 411));
 			temp = 0;
 		}
 	}
-	if(temp!=0) res.push_back(degree_mod(temp, 411));
+	if(temp!=0) res.push_back(degree_mod(temp, temp,411));
 	return res;
 }
 template <typename T>
@@ -76,8 +88,7 @@ vector<int> func(vector<vector<int>> a) {
 int main() {
 	vector<vector<int>> test_v = { {1,2},{3,4,5} };
 	string b = "10fg23rj9l";
-	vector<int> a = func(35);
+	vector<int> a = func(-5);
 	for (int i = 0; i < a.size(); i++) cout << a[i] << " ";
-	
 	return 0;
 }
