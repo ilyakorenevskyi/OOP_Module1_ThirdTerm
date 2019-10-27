@@ -1,4 +1,9 @@
 #include "Beta.h"
+Beta::Beta(std::vector<std::shared_ptr<Base>> a) {
+	data = a;
+	b_N++;
+	curr = b_N;
+}
 Beta::Beta(){
 	b_N++;
 	curr=b_N;

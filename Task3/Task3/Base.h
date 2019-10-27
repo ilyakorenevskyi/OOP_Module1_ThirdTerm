@@ -9,6 +9,6 @@ public:
 	std::vector< std::shared_ptr<Base> > data;
 	Base();
 	int curr;
-	~Base();
+	virtual ~Base();
 };
 

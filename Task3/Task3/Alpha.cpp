@@ -1,10 +1,15 @@
 #include "Alpha.h"
+Alpha::Alpha(std::vector<std::shared_ptr<Base>> a) {
+	data = a;
+	a_N++;
+	curr = a_N;
+}
 Alpha::Alpha(){
 	a_N++;
 	curr = a_N;
 }
 Alpha::~Alpha(){
-	S -= 2* curr + 11;
+	S += - 2* curr + 11;
 	a_N--;
 }
 int Alpha::a_N = 0;

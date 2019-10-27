@@ -7,8 +7,8 @@
 using namespace std;
 int S(0);
 void check() {
-	shared_ptr<Alpha> p1(new Alpha);
-	shared_ptr<Alpha> p2(new Alpha);
+	shared_ptr<Base> p1(new Alpha);
+	shared_ptr<Alpha> p2(new Alpha({ p1 }));
 }
 int main() {
 	check();
