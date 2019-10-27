@@ -85,21 +85,25 @@ vector<int> func(pair<T,T> a) {
 	}
 	return res;
 }
-template <>
-vector<int> func(vector<vector<int>> a) {
-	vector<int> res;
+template <typename T>
+vector<int> func(vector<T> a) {
+	vector<vector<int>> temp;
 	for (int i = 0; i != a.size(); i++) {
-		for (int j = a[i].size() - 1; j >= 0; j--) {
-			res.push_back(a[i][j]);
+		temp.push_back(func(a[i]));
+	}
+	vector<int> res;
+	for (int i = 0; i != temp.size(); i++) {
+		for (int j = temp[i].size() - 1; j >= 0; j--) {
+			res.push_back(temp[i][j]);
 		}
 	}
 	return res;
 }
 int main() {
-	vector<vector<int>> test_v = { {1,2},{3,4,5} };
+	vector<char> test_v = {'a','b' };
 	pair <int, int> test_p = { 5,4 };
 	string b = "10fg23rj9l";
-	vector<int> a = func(test_p);
+	vector<int> a = func(test_v);
 	for (int i = 0; i < a.size(); i++) cout << a[i] << " ";
 	return 0;
 }
