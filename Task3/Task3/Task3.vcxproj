@@ -123,7 +123,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Alpha.cpp" />
+    <ClCompile Include="Base.cpp" />
+    <ClCompile Include="Beta.cpp" />
+    <ClCompile Include="Gamma.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Alpha.h" />
+    <ClInclude Include="Base.h" />
+    <ClInclude Include="Beta.h" />
+    <ClInclude Include="Gamma.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
