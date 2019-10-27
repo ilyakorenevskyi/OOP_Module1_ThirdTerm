@@ -52,12 +52,18 @@ vector<int> func(pair<T,T> a) {
 
 template <>
 vector<int> func(vector<vector<int>> a) {
-	
+	vector<int> res;
+	for (int i = 0; i != a.size(); i++) {
+		for (int j = a[i].size() - 1; j >= 0; j--) {
+			res.push_back(a[i][j]);
+		}
+	}
+	return res;
 }
 int main() {
+	vector<vector<int>> test_v = { {1,2},{3,4,5} };
 	string b = "10fg23rj9l";
-	vector<int> a = func(b);
+	vector<int> a = func(test_v);
 	for (int i = 0; i < a.size(); i++) cout << a[i] << " ";
-	cout <<endl <<degree_mod(9,411);
 	return 0;
 }
