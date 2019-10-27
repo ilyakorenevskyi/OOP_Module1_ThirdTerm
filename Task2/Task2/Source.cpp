@@ -22,7 +22,7 @@ int degree_mod(int a,int degree,int mod) {
 }
 template <typename T>
 vector<int> func(T a) {
-	return { 4,0,61 };
+	return { 4,0,71 };
 }
 template <>
 vector<int> func(int a) {
@@ -35,8 +35,8 @@ vector<int> func(int a) {
 		}
 	}
 	else {
-		temp = (degree_mod((0-a), 4, 204) - degree_mod((0-a), 3, 204));
-		temp = (temp < 0) ? (204 + temp) : temp;
+		temp = (degree_mod((0-a), 8, 211) - degree_mod((0-a), 3, 211));
+		temp = (temp < 0) ? (211 + temp) : temp;
 		while (temp >= 4) {
 			res.push_back(temp % 4);
 			temp = temp / 4;
@@ -73,7 +73,17 @@ vector<int> func(string a) {
 }
 template <typename T>
 vector<int> func(pair<T,T> a) {
+	vector<int> res1 = func(a.first);
+	for (int i = 0; i < res1.size(); i++) cout << res1[i] << " ";
+	vector<int> res2 = func(a.second);
+	cout << endl;
+	for (int i = 0; i < res2.size(); i++) cout << res2[i] << " ";
 	vector<int>res;
+	cout << endl;
+	for (int i = 0; i < res1.size(); i++) {
+		for (int j = 0; j < res2[i]; j++) res.push_back(res1[i]);
+	}
+	return res;
 }
 template <>
 vector<int> func(vector<vector<int>> a) {
@@ -87,8 +97,9 @@ vector<int> func(vector<vector<int>> a) {
 }
 int main() {
 	vector<vector<int>> test_v = { {1,2},{3,4,5} };
+	pair <int, int> test_p = { 5,4 };
 	string b = "10fg23rj9l";
-	vector<int> a = func(-5);
+	vector<int> a = func(test_p);
 	for (int i = 0; i < a.size(); i++) cout << a[i] << " ";
 	return 0;
 }
