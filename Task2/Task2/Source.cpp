@@ -5,6 +5,13 @@
 #include <utility>
 #include <vector>
 using namespace std;
+int fac_mod(int a, int mod) {
+	int res = a % mod;
+	for (int i = 1; i < a; i++) {
+		res = (res * (a-i)) % mod;
+	}
+	return res;
+}
 int degree_mod(int a,int mod) {
 	int res = a;
 	for (int i = 1; i < a; i++) {
@@ -14,11 +21,18 @@ int degree_mod(int a,int mod) {
 }
 template <typename T>
 vector<int> func(T a) {
-	return { 4,0,71 };
+	return { 4,0,61 };
 }
 template <>
 vector<int> func(int a) {
-	return { 4,0,3};
+	vector<int> res;
+	if (a > 0) {
+		for (int k = 2; k <= 111; k++) {
+			int temp = fac_mod(a, k) - (a * a) % k;
+			res.push_back((temp<0)?(k+temp):temp);
+		}
+	}
+	return res;
 }
 template <>
 vector<int> func(double a){
@@ -47,9 +61,8 @@ vector<int> func(string a) {
 }
 template <typename T>
 vector<int> func(pair<T,T> a) {
-	return { 4,0,1 };
+	vector<int>res;
 }
-
 template <>
 vector<int> func(vector<vector<int>> a) {
 	vector<int> res;
@@ -63,7 +76,8 @@ vector<int> func(vector<vector<int>> a) {
 int main() {
 	vector<vector<int>> test_v = { {1,2},{3,4,5} };
 	string b = "10fg23rj9l";
-	vector<int> a = func(test_v);
+	vector<int> a = func(35);
 	for (int i = 0; i < a.size(); i++) cout << a[i] << " ";
+	
 	return 0;
 }
