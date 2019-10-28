@@ -11,6 +11,7 @@ class Project
 	bool done;
 	int difficulty;
 	double time;
+	double start_time;
 public:
 	// mark project as done, all workers are free
 	void make_done();

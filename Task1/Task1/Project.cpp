@@ -13,6 +13,9 @@ bool Project::check(){
 		return temp_sum == dependence.size();
 }
 
+void Project::add_worker(Developer worker){
+}
+
 Project::Project(){
 }
 
