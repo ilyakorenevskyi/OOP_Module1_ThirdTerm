@@ -13,8 +13,7 @@ bool Project::check(){
 }
 void Project::add_worker(Developer worker){
 }
-Project::Project(){
-}
+Project::Project():done(0) {}
 Project::Project(int diff, std::vector<Tech> tech, std::vector<Developer> workers, std::vector<Project> projects) :done(0), difficulty(diff), proj_tech(tech), proj_develop(workers), dependence(projects) {}
 
 Project::~Project()
