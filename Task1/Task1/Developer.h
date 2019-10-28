@@ -1,19 +1,20 @@
 #pragma once
 #include "Project.h"
+#include <iostream>
 #include <string>
 class Tech;
 #include  <vector>
 class Developer
 {
-public:
-	Project *curr_proj;
+	friend class Project;
+	Project* curr_proj;
 	std::vector<Tech> tech_know;
 	double performance;
+public:
 	Developer();
 	Developer(double perf, std::vector<Tech> tech);
 	void change_perf(double perf);
-	Developer(double perf);
-
+	void add_tech(Tech to_add);
 	~Developer();
 };
 

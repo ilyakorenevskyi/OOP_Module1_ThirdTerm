@@ -18,7 +18,7 @@ void Project::add_worker(Developer worker){
 
 Project::Project(){
 }
-
+Project::Project(int diff, std::vector<Tech> tech, std::vector<Developer> workers, std::vector<Project> projects) :difficulty(diff), proj_tech(tech), proj_develop(workers), dependence(projects) {}
 
 Project::~Project()
 {
