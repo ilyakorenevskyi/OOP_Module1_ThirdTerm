@@ -27,6 +27,15 @@ void Project::add_developer(Developer to_add) {
 			}
 	std::cout << "Worker doesn't know necessary technologies";
 }
+void Project::add_tech(Tech to_add) {
+	for (int i = 0; i !=  proj_tech.size(); i++)
+		if (to_add == proj_tech[i]) {
+			std::cout << "Tech is already used in project!\n";
+			return;
+		}
+	proj_tech.push_back(to_add);
+	std::cout << "Tech added successfully";
+}
 void Project::add_worker(Developer worker){
 }
 Project::Project():done(0) {}

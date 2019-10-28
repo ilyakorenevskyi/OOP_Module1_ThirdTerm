@@ -18,6 +18,7 @@ public:
 	//check if project can start
 	bool check();
 	void add_developer(Developer to_add);
+	void add_tech(Tech to_add);
 	void add_worker(Developer worker);
 	Project();
 	Project(int diff, std::vector<Tech> tech, std::vector<Developer> workers, std::vector<Project> projects);
