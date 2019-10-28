@@ -14,9 +14,13 @@ bool Project::check(){
 		return temp_sum == dependence.size();
 }
 void Project::add_developer(Developer to_add) {
+	if (to_add.curr_proj != nullptr) {
+		std::cout << "Worker is busy already";
+		return;
+	}
 	for (int i = 0; i != proj_tech.size(); i++) 
 		for (int j = 0; j != to_add.tech_know.size(); j++) 
-			if (to_add.tech_know[j] == proj_tech[i]) {
+			if (to_add.tech_know[j] == proj_tech[i]) {\
 				proj_develop.push_back(to_add);
 				std::cout << "Worker added successfully";
 				return;
