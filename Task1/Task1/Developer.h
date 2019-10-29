@@ -9,8 +9,9 @@ class Developer
 	friend class Project;
 	Project* curr_proj;
 	std::vector<Tech> tech_know;
-	double performance;
 public:
+	double performance;
+
 	Developer();
 	Developer(double perf, std::vector<Tech> tech);
 	void change_perf(double perf);

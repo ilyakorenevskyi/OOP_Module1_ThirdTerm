@@ -4,8 +4,14 @@ class Tech{
 	friend class Project;
 	std::string name;
 	int difficulty;
+	friend bool operator== (const Tech& t1, const Tech& t2);
+	friend bool operator!= (const Tech& t1, const Tech& t2);
+	friend bool operator< (const Tech& t1, const Tech& t2);
+	friend bool operator> (const Tech& t1, const Tech& t2);
+	friend bool operator<= (const Tech& t1, const Tech& t2);
+	friend bool operator>= (const Tech& t1, const Tech& t2);
 public:
-	bool operator==(Tech a);
+	Tech(std::string n, int diff);
 	Tech();
 	~Tech();
 };
