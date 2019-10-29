@@ -45,7 +45,7 @@ int main() {
 	srand(time(0));
 	for (int i = 0; i != 10; i++) {
 		switch (rand() % 3 + 1) {
-		case 1: res.push_back(make_shared<Alpha>(res));
+		case 1: res.push_back(make_shared<Alpha>());
 		case 2: res.push_back(make_shared<Beta>());
 		case 3: res.push_back(make_shared<Gamma>(res));
 		}
@@ -55,8 +55,8 @@ int main() {
 	/*res.push_back(make_shared<Alpha>());
 	vector <shared_ptr<Base>>  temp = { res[0],make_shared<Alpha>() ,make_shared<Alpha>() ,make_shared<Beta>() };
 	res.push_back(make_shared<Alpha>(temp));*/
-	cout << predict(res, 0, 0) << " ";
+	cout << "Predicted S after deletion: " <<predict(res, 0, 0) << "\n";
 	delet(res);
-	cout << S;
+	cout <<"S after deletion: " << S;
 	return 0;
 }
