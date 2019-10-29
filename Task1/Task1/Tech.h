@@ -2,7 +2,7 @@
 #include <string>
 class Tech{
 	friend class Project;
-	std::string name;
+	static int tech_number;
 	int difficulty;
 	friend bool operator== (const Tech& t1, const Tech& t2);
 	friend bool operator!= (const Tech& t1, const Tech& t2);
@@ -11,7 +11,7 @@ class Tech{
 	friend bool operator<= (const Tech& t1, const Tech& t2);
 	friend bool operator>= (const Tech& t1, const Tech& t2);
 public:
-	Tech(std::string n, int diff);
+	Tech( int diff);
 	Tech();
 	~Tech();
 };

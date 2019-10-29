@@ -9,14 +9,14 @@ class Developer
 
 	friend class Project;
 	Project* curr_proj;
-	std::vector<Tech> tech_know;
+	std::vector<Tech*> tech_know;
 public:
 	double performance;
-	std::string name;
+	static int developer_num;
 	Developer();
-	Developer(double perf, std::string name);
+	Developer(double perf);
 	void change_perf(double perf);
-	void add_tech(Tech to_add);
+	void add_tech(Tech *to_add);
 	~Developer();
 };
 
