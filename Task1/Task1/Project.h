@@ -1,11 +1,12 @@
 #pragma once
 class Developer;
 class Tech;
+#include <map>
 #include <string>
 #include  <vector>
 class Project
 {
-	std::vector<Tech> proj_tech;
+	std::map<Tech,std::vector<Developer>> proj_tech;
 	std::vector<Developer> proj_develop;
 	std::vector<Project> dependence;
 	bool done;
@@ -17,6 +18,7 @@ public:
 	void make_done();
 	//check if project can start
 	bool check();
+	void update_time();
 	void add_developer(Developer to_add);
 	void add_tech(Tech to_add);
 	void add_worker(Developer worker);

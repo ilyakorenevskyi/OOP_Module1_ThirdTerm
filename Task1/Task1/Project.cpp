@@ -13,27 +13,32 @@ bool Project::check(){
 			temp_sum += dependence[i].done;
 		return temp_sum == dependence.size();
 }
+void Project::update_time() {
+	
+}
 void Project::add_developer(Developer to_add) {
+	bool know = 0;
 	if (to_add.curr_proj != nullptr) {
 		std::cout << "Worker is busy already";
 		return;
 	}
-	for (int i = 0; i != proj_tech.size(); i++) 
-		for (int j = 0; j != to_add.tech_know.size(); j++) 
-			if (to_add.tech_know[j] == proj_tech[i]) {\
-				proj_develop.push_back(to_add);
-				std::cout << "Worker added successfully";
-				return;
-			}
+	for (int j = 0; j != to_add.tech_know.size(); j++)
+		if (proj_tech.find(to_add.tech_know[j]) != proj_tech.end()) {
+			proj_tech[to_add.tech_know[j]].push_back(to_add);
+			know = 1;
+		}
+	if (know) {
+		proj_develop.push_back(to_add);
+		return;
+	}
 	std::cout << "Worker doesn't know necessary technologies";
 }
 void Project::add_tech(Tech to_add) {
-	for (int i = 0; i !=  proj_tech.size(); i++)
-		if (to_add == proj_tech[i]) {
+		if (proj_tech.find(to_add) != proj_tech.end()) {
 			std::cout << "Tech is already used in project!\n";
 			return;
 		}
-	proj_tech.push_back(to_add);
+	proj_tech.insert({ to_add, {} });
 	std::cout << "Tech added successfully";
 }
 void Project::add_worker(Developer worker){
