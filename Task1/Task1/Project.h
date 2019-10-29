@@ -7,10 +7,12 @@ class Tech;
 class Project
 {
 	static int project_num;
+	friend void sort(std::vector<Project*> unfinished);
 	std::map<Tech*,std::vector<Developer*>> proj_tech;
 	std::vector<Developer*> proj_develop;
 	std::vector<Project*> dependence;
 public:
+	int curr_num;
 	int done;
 	int difficulty;
 	int curr_time;
@@ -31,6 +33,10 @@ public:
 	bool add_developer(Developer *to_add);
 	//Add new tech in Project if it is suitable for all parameters
 	void add_tech(Tech* to_add);
+	//output project
+	void output();
+	//sum of performance
+	double sum_prod(std::vector<Developer*> workers);
 	void add_project(Project* to_add); //Adds dependant project
 	Project(int diff);
 	Project(int diff,  std::vector<Project*> projects);

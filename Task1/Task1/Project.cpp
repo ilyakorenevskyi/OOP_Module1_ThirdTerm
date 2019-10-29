@@ -2,7 +2,12 @@
 #include "Developer.h"
 #include "Tech.h"
 #include <iostream>
-double sum_prod(std::vector<Developer*> workers) {	
+#include <iomanip>
+void Project::output() {
+	std::cout << std::setprecision(2) << std::fixed;
+	std::cout << std::setw(14) << curr_num << " " << std::setw(11) << proj_tech.size() << " " << std::setw(10) << difficulty << " " << std::setw(15) << sum_prod(proj_develop) << std::endl;
+}
+double Project::sum_prod(std::vector<Developer*> workers) {	
 	double res=0;
 	for (auto i : workers) 
 		res += i->performance;
@@ -33,12 +38,13 @@ void Project::start() {									// Start work if possible
 	}
 	else {
 		std::cout << "Wait till all depend projects are done\n";
+		return;
 	}
 	update_time();
 	done = 1;
 }
 void Project::update() {
-	if (done == 0) start();
+	if (done == 0) start(); 
 	if (curr_time == time) {
 		make_done();
 		return;
@@ -103,9 +109,11 @@ void Project::add_tech(Tech* to_add) {
 }
 Project::Project(int diff):done(0),difficulty(diff){
 	project_num++;
+	curr_num = project_num;
 }
 Project::Project(int diff,  std::vector<Project*> projects) :done(0), difficulty(diff), dependence(projects) {
 	project_num++;
+	curr_num = project_num;
 }
 Project::~Project(){}
 int Project::project_num = 0;
