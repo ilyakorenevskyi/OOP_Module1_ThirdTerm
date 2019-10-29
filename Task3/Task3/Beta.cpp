@@ -8,10 +8,11 @@ int Beta::check_S(int temp_s) {
 	if (ptr_numb == 1) {
 		temp_s +=  - curr;
 		temp_s = 2 * temp_s - curr + 11;
+		ptr_numb--;
 		return temp_s;
 	}
 	ptr_numb--;
-	return 0;
+	return temp_s;
 }
 Beta::Beta(){
 	b_N++;

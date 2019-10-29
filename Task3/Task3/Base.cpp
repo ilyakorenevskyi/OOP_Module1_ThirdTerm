@@ -1,4 +1,10 @@
 #include "Base.h"
+void Base::update_ptr_number(int n) {
+	ptr_numb = n;
+	for (int i = 0; i != data.size(); i++) {
+		data[i]->update_ptr_number(data[i].use_count());
+	}
+}
 Base::Base(bool check) {
 }
 Base::Base(){

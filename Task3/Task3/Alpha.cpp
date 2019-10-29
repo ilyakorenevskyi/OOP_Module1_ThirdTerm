@@ -3,10 +3,11 @@ int Alpha::check_S(int temp_s){
 	if (ptr_numb == 1) {
 		temp_s += -2 * curr + 11 ;
 		temp_s = 2 * temp_s -curr + 11;
+		ptr_numb--;
 		return temp_s;
 	}
 	ptr_numb--;
-	return 0;
+	return temp_s;
 }
 Alpha::Alpha(std::vector<std::shared_ptr<Base>> a) : Base(0){
 	data = a;
