@@ -6,10 +6,10 @@ class Tech;
 #include  <vector>
 class Project
 {
-public:
 	std::map<Tech,std::vector<Developer>> proj_tech;
 	std::vector<Developer> proj_develop;
 	std::vector<Project> dependence;
+public:
 	bool done;
 	int difficulty;
 	double time;
