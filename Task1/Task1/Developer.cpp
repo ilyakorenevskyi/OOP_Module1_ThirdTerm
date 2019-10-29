@@ -14,18 +14,24 @@ Developer::Developer(double perf) {
 	performance = ((perf > 1) ? 1 : perf);
 	performance = ((perf < 0) ? 0 : perf);
 }
+bool Developer::if_know(Tech* tech) {
+	for (auto i : tech_know)
+		if (tech== i) {
+			return true;
+		}
+	return false;
+}
 void Developer::change_perf(double perf) {
 	performance = ((perf > 1) ? 1 : perf);
 	performance = ((perf < 0) ? 0 : perf);
 }
 void Developer::add_tech(Tech *to_add) {
-	for (auto i : tech_know)
-		if (to_add ==i) {
-			std::cout << "Tech is already known by developer!\n";
-			return;
-		}
+	if(if_know(to_add)) {
+		//std::cout << "Tech is already known by developer!\n";
+		return;
+	}
 	tech_know.push_back(to_add);
-	std::cout << "Tech added successfully\n";
+	//std::cout << "Tech added successfully\n";
 } 
 Developer::~Developer(){
 	delete curr_proj;

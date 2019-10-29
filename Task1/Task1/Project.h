@@ -14,7 +14,7 @@ public:
 	int done;
 	int difficulty;
 	int curr_time;
-	double time;
+	int time;
 	//Start work if possible
 	void start();
 	//update project
@@ -25,8 +25,10 @@ public:
 	bool check();
 	//Update how much time do we need to get project done
 	void update_time();
+	//Fills all empty technologies with one developer
+	void fill_with_developers(std::vector<Developer*> available);
 	//Add new developer in Project if he/she is suitable for all parameters
-	void add_developer(Developer *to_add);
+	bool add_developer(Developer *to_add);
 	//Add new tech in Project if it is suitable for all parameters
 	void add_tech(Tech* to_add);
 	void add_project(Project* to_add); //Adds dependant project

@@ -15,6 +15,7 @@ public:
 	static int developer_num;
 	Developer();
 	Developer(double perf);
+	bool if_know(Tech* tech);
 	void change_perf(double perf);
 	void add_tech(Tech *to_add);
 	~Developer();
