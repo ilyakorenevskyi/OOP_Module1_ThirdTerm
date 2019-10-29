@@ -70,7 +70,11 @@ int main() {
 
 		}
 	}*/
-	for (int t = 0; t != 100; t++) {														//До опреленного времени
+	int stop = 100; //время вывода статистики
+	for (int t = 0; t != 100; t++) {				//До опреленного времени
+		if (t == stop) {
+			sort(unfinished);
+		}
 		for (int i = 0; i != unfinished.size();i++) {
 			unfinished[i]->fill_with_developers(available_developers);
 			unfinished[i]->update();
